@@ -1,19 +1,25 @@
 # Changelog
 
+## [1.0.3] - 2024-11-20
+
+### [1.0.3] Fixed
+
+- Updated punctuation within CHANGELOG.md.
+
 ## [1.0.2] - 2024-11-20
 
 ### [1.0.2] Fixed
 
-- Fixed mispellings inside of CHANGELOG.md
+- Fixed mispellings inside of CHANGELOG.md.
 - Fixed duplicate headings.
-- Fixed CHANGELOG.md format
+- Fixed CHANGELOG.md format.
 
 ## [1.0.1] - 2024-11-20
 
 ### [1.0.1] Fixed
 
 - Updated README.md to better suit the project.
-- Updated CHANGELOG.md to include notation
+- Updated CHANGELOG.md to include notation.
 
 ## [1.0.0] - 2024-11-20
 
