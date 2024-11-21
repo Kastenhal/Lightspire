@@ -1,0 +1,26 @@
+{
+  "name": "Lightspire",
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "$path": "src/replicated_storage"
+    },
+
+    "ServerScriptService": {
+      "$path": "src/server_script_service"
+    },
+
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "$path": "src/starter_player_scripts"
+      }
+    },
+
+    "Workspace": {
+      "$properties": {
+        "FilteringEnabled": true
+      }
+    }
+  }
+}
