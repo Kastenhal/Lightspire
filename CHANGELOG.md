@@ -1,8 +1,14 @@
 # Changelog
 
+## [1.3.1] - 2024-11-24
+
+### [1.3.1] Fixed
+
+- Fixed mistakes within CHANGELOG.md.
+
 ## [1.3.0] - 2024-11-24
 
-### Removed
+### [1.3.0] Removed
 
 - Removed the default camera and control implementation.
 
