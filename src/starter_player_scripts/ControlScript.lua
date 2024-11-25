@@ -1,2 +1,0 @@
--- ControlScript
--- Prevents default player control behavior.

@@ -1,2 +1,0 @@
--- CameraScript
--- Prevents default camera behavior.

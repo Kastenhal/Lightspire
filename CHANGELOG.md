@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.2] - 2024-11-24
+
+## [1.3.2] Fixed
+
+- Reimplmented default camera and control behavior.
+
 ## [1.3.1] - 2024-11-24
 
 ### [1.3.1] Fixed
