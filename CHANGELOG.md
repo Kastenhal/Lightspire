@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.0] - 2024-11-24
+
+### Removed
+
+- Removed the default camera and control implementation.
+
 ## [1.2.0] - 2024-11-24
 
 ### [1.2.0] Added
