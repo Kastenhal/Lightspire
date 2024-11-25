@@ -1,16 +1,17 @@
 -- Services
-local ServerScriptService = game:GetService("ServerScriptService")
+local server_script_service = game:GetService("ServerScriptService")
 
 -- Modules
-local StateMachine = require(ServerScriptService.state_machine)
+local state_machine = require(server_script_service.state_machine)
 
 -- Entity Factory
-local EntityFactory = {}
+local entity_factory = {}
 
-function EntityFactory.create_entity(name)
+function entity_factory.create_entity(name, properties)
     local entity = {}
-    entity.name = name or "Entity"
-    entity.state_machine = StateMachine.new()
+    entity.name = name or "entity"
+    entity.properties = properties or {}
+    entity.state_machine = state_machine.new()
 
     -- Example: Add simple states
     entity.state_machine:add_state("idle", {
@@ -34,4 +35,4 @@ function EntityFactory.create_entity(name)
     return entity
 end
 
-return EntityFactory
+return entity_factory

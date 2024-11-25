@@ -1,17 +1,17 @@
 -- State Machine
-local StateMachine = {}
-StateMachine.__index = StateMachine
+local state_machine = {}
+state_machine.__index = state_machine
 
--- Constructor for StateMachine
-function StateMachine.new()
-    local self = setmetatable({}, StateMachine)
+-- Constructor for state_machine
+function state_machine.new()
+    local self = setmetatable({}, state_machine)
     self.states = {} -- Holds all states
     self.current_state = nil -- Tracks the current state
     return self
 end
 
 -- Add a new state with its actions and events
-function StateMachine:add_state(state_name, actions, events)
+function state_machine:add_state(state_name, actions, events)
     assert(type(state_name) == "string", "State name must be a string")
     assert(type(actions) == "table", "Actions must be a table of functions")
     self.states[state_name] = {
@@ -21,18 +21,18 @@ function StateMachine:add_state(state_name, actions, events)
 end
 
 -- Set the current state
-function StateMachine:set_state(state_name)
+function state_machine:set_state(state_name)
     assert(self.states[state_name], "State does not exist: " .. tostring(state_name))
     self.current_state = state_name
 end
 
 -- Get the current state
-function StateMachine:get_state()
+function state_machine:get_state()
     return self.current_state
 end
 
 -- Perform an action in the current state
-function StateMachine:perform_action(action_name, ...)
+function state_machine:perform_action(action_name, ...)
     if not self.current_state then
         error("No current state is set!")
     end
@@ -49,7 +49,7 @@ function StateMachine:perform_action(action_name, ...)
 end
 
 -- Check events in the current state and transition if any event triggers
-function StateMachine:check_events(...)
+function state_machine:check_events(...)
     if not self.current_state then
         error("No current state is set!")
     end
@@ -68,4 +68,4 @@ function StateMachine:check_events(...)
     end
 end
 
-return StateMachine
+return state_machine

@@ -1,8 +1,8 @@
 -- Entity Manager
-local EntityManager = {}
+local entity_manager = {}
 
 -- Table to store entities
-EntityManager.entities = {}
+entity_manager.entities = {}
 
 -- Function to generate a UUID
 local function generate_uuid()
@@ -14,17 +14,17 @@ local function generate_uuid()
 end
 
 -- Add an entity
-function EntityManager.add_entity(entity)
+function entity_manager.add_entity(entity)
     local id = generate_uuid() -- Generate a unique UUID
-    EntityManager.entities[id] = entity
+    entity_manager.entities[id] = entity
     print("Entity added with UUID:", id)
     return id -- Return the UUID for reference
 end
 
 -- Remove an entity
-function EntityManager.remove_entity(id)
-    if EntityManager.entities[id] then
-        EntityManager.entities[id] = nil
+function entity_manager.remove_entity(id)
+    if entity_manager.entities[id] then
+        entity_manager.entities[id] = nil
         print("Entity removed with UUID:", id)
     else
         print("No entity found with UUID:", id)
@@ -32,13 +32,13 @@ function EntityManager.remove_entity(id)
 end
 
 -- Get an entity by UUID
-function EntityManager.get_entity(id)
-    return EntityManager.entities[id]
+function entity_manager.get_entity(id)
+    return entity_manager.entities[id]
 end
 
 -- Get all entities
-function EntityManager.get_all_entities()
-    return EntityManager.entities
+function entity_manager.get_all_entities()
+    return entity_manager.entities
 end
 
-return EntityManager
+return entity_manager

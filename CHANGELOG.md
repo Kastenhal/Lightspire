@@ -1,14 +1,25 @@
 # Changelog
 
+## [1.2.0] - 2024-11-24
+
+### [1.2.0] Added
+
+- Added properties to each entity created.
+
+### [1.2.0] Fixed
+
+- Fixed mistakes within CHANGELOG.md.
+- Fixed names to be consistenly snake_case.
+
 ## [1.1.1] - 2024-11-24
 
-## Fixed
+### [1.1.1] Fixed
 
 - Updated format within CHANGELOG.md.
 
 ## [1.1.0] - 2024-11-24
 
-### Added
+### [1.1.0] Added
 
 - Added a state machine that handles adding, setting, and getting states, along with performing actions and checking events.
 - Added an entity factory to return an "entity" with it's own state machine, name, and properties.

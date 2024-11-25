@@ -1,6 +1,8 @@
 {
     "ClassName": "Part",
     "Properties": {
+        "Name": "Baseplate",
+
         "Anchored": true,
 
         "Size": [10, 2, 10],
