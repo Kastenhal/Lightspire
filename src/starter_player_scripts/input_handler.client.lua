@@ -1,15 +1,11 @@
 -- Services
 local user_input_service = game:GetService("UserInputService")
-local replicated_storage = game:GetService("ReplicatedStorage")
+local remotes = game:GetService("ReplicatedStorage"):WaitForChild("remotes")
 
--- Remotes
-local remotes = replicated_storage:WaitForChild("remotes")
+-- Input Actions Mapping
+local input_actions = { [Enum.KeyCode.LeftShift] = "sprint" }
 
--- Input to Action Mapping
-local input_actions = {
-    [Enum.KeyCode.LeftShift] = "sprint",
-}
-
+-- Fire Remote
 local function fire_remote(action_name, input_state)
     local remote = remotes:FindFirstChild(action_name)
     if not remote then
@@ -19,19 +15,13 @@ local function fire_remote(action_name, input_state)
     remote:FireServer(input_state)
 end
 
--- Function to handle input
+-- Handle Input
 local function handle_input(input_object)
-    if input_object.UserInputType ~= Enum.UserInputType.Keyboard then return end
-
     local action_name = input_actions[input_object.KeyCode]
-    if not action_name then
-        warn("No action mapped for key: " .. tostring(input_object.KeyCode))
-        return
+    if action_name then
+        fire_remote(action_name, input_object.UserInputState)
     end
-
-    fire_remote(action_name, input_object.UserInputState)
 end
 
--- Connect to InputBegan and InputEnded
 user_input_service.InputBegan:Connect(handle_input)
 user_input_service.InputEnded:Connect(handle_input)
