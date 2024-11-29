@@ -1,8 +1,17 @@
 # Changelog
 
+## [1.3.3] - 2024-11-25
+
+### [1.3.3] Added
+
+- Added flawed state machine, will be fixed in next patch.
+- Added data saving through data_manager and data_factory.
+- Added a texture to the baseplate.
+- Added simple input behavior.
+
 ## [1.3.2] - 2024-11-24
 
-## [1.3.2] Fixed
+### [1.3.2] Fixed
 
 - Reimplmented default camera and control behavior.
 

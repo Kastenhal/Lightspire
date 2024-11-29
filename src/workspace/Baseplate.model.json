@@ -1,14 +1,29 @@
 {
     "ClassName": "Part",
     "Properties": {
-        "Name": "Baseplate",
+        "Name": "baseplate",
 
         "Anchored": true,
 
-        "Size": [10, 2, 10],
+        "Size": [64, 2, 64],
         "Position": [0, 0, 0],
 
         "TopSurface": "Smooth",
         "BottomSurface": "Smooth"
-    }
+    },
+
+    "Children": [
+        {
+            "ClassName": "Texture",
+            "Properties": {
+                "Name": "baseplate_texture",
+                "Texture": "rbxassetid://98035499602465",
+
+                "Face": "Top",
+
+                "StudsPerTileU": 4,
+                "StudsPerTileV": 4
+            }
+        }
+    ]
 }

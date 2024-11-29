@@ -48,24 +48,4 @@ function state_machine:perform_action(action_name, ...)
     return action(...)
 end
 
--- Check events in the current state and transition if any event triggers
-function state_machine:check_events(...)
-    if not self.current_state then
-        error("No current state is set!")
-    end
-
-    local state = self.states[self.current_state]
-    for event_name, event_data in pairs(state.events) do
-        local condition = event_data.condition
-        local target_state = event_data.target_state
-
-        -- If the event condition is met, transition to the target state
-        if condition(...) then
-            print("Event triggered:", event_name, "Transitioning to state:", target_state)
-            self:set_state(target_state)
-            return
-        end
-    end
-end
-
 return state_machine
