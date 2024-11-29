@@ -1,6 +1,12 @@
 # Changelog
 
-## [1.3.3] - 2024-11-25
+## [1.4.0] - 2024-11-29
+
+### [1.4.0] Fixed
+
+- Fixed code base implementation.
+
+## [1.3.3] - 2024-11-29
 
 ### [1.3.3] Added
 

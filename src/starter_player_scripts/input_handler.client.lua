@@ -2,13 +2,22 @@
 local user_input_service = game:GetService("UserInputService")
 local replicated_storage = game:GetService("ReplicatedStorage")
 
--- Folders
+-- Remotes
 local remotes = replicated_storage:WaitForChild("remotes")
 
--- Input to action mapping
+-- Input to Action Mapping
 local input_actions = {
     [Enum.KeyCode.LeftShift] = "sprint",
 }
+
+local function fire_remote(action_name, input_state)
+    local remote = remotes:FindFirstChild(action_name)
+    if not remote then
+        warn("No remote found for action: " .. tostring(action_name))
+        return
+    end
+    remote:FireServer(input_state)
+end
 
 -- Function to handle input
 local function handle_input(input_object)
@@ -20,14 +29,7 @@ local function handle_input(input_object)
         return
     end
 
-    local remote = remotes:FindFirstChild(action_name)
-    if not remote then
-        warn("No remote found for action: " .. action_name)
-        return
-    end
-
-    -- Fire the corresponding remote event
-    remote:FireServer(input_object.UserInputState)
+    fire_remote(action_name, input_object.UserInputState)
 end
 
 -- Connect to InputBegan and InputEnded

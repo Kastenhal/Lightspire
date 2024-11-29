@@ -1,34 +1,39 @@
--- State Machine
 local state_machine = {}
 state_machine.__index = state_machine
 
--- Constructor for state_machine
+-- Constructor
 function state_machine.new()
     local self = setmetatable({}, state_machine)
-    self.states = {} -- Holds all states
-    self.current_state = nil -- Tracks the current state
+    self.states = {}
+    self.current_state = nil
     return self
 end
 
--- Add a new state with its actions and events
-function state_machine:add_state(state_name, actions, events)
-    assert(type(state_name) == "string", "State name must be a string")
-    assert(type(actions) == "table", "Actions must be a table of functions")
+-- Add a new state
+function state_machine:add_state(state_name, config)
     self.states[state_name] = {
-        actions = actions,
-        events = events or {}, -- Events are optional
+        actions = config.actions or {},
+        on_enter = config.on_enter or function() end,
+        on_exit = config.on_exit or function() end,
     }
 end
 
--- Set the current state
-function state_machine:set_state(state_name)
-    assert(self.states[state_name], "State does not exist: " .. tostring(state_name))
-    self.current_state = state_name
-end
+-- Transition to a new state
+function state_machine:transition_to(state_name, ...)
+    local state = self.states[state_name]
+    if not state then
+        error("State '" .. state_name .. "' does not exist")
+    end
 
--- Get the current state
-function state_machine:get_state()
-    return self.current_state
+    if self.current_state then
+        local exit_func = self.states[self.current_state].on_exit
+        exit_func(self.current_state, ...)
+    end
+
+    self.current_state = state_name
+
+    local enter_func = state.on_enter
+    enter_func(state_name, ...)
 end
 
 -- Perform an action in the current state
@@ -41,10 +46,9 @@ function state_machine:perform_action(action_name, ...)
     local action = state.actions[action_name]
 
     if not action then
-        error("Action '" .. tostring(action_name) .. "' not available in state '" .. self.current_state .. "'")
+        error("Action '" .. action_name .. "' not available in state '" .. self.current_state .. "'")
     end
 
-    -- Call the action with any provided arguments
     return action(...)
 end
 
