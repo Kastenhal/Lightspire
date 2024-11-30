@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.6.0] - 2024-11-30
+
+### [1.6.0] - Added
+
+- New data and entity handling
+
 ## [1.5.0] - 2024-11-29
 
 ### [1.5.0] Removed
